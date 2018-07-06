@@ -18,8 +18,6 @@ $ npm run dev
 
 ## 使用
 
-- 基础用法
-
 ```shell
 import React from 'react'
 import Questionnnair from 'react-questionnair'
@@ -30,13 +28,15 @@ import Questionnnair from 'react-questionnair'
 
 ```
 
-- APIs
-**Attributes**
-| 属性       | 描述                            |   类型   | 默认值 |
-| --------- | :------------------------------ | :------: | :----: |
-| editor       |        | 编辑器数据结构                | array  |   约定的数据结构 |
-| acitveAnswer |        | 编辑器组件为true时可以进行答案填写                | boolean  |  false |
-**Events**
+## APIs
+
+- Attributes
+| 属性      | 子属性 | 描述                            |   类型   | 默认值 |
+| --------- | ------ | :------------------------------ | :------: | :----: |
+| editor |        | 编辑器数据结构                  |  array  |        |
+| acitveAnswer      |        | 编辑器组件为true时可以进行答案填写                            |   boolean   |    false    |
+
+- Events
 | 属性       | 描述                            |   参数   |
 | --------- | :------------------------------ | :------: |
 | onDrag       | 当拖拽题目时会触发该事件（包括题目栏拖拽）  | array |
@@ -46,9 +46,7 @@ import Questionnnair from 'react-questionnair'
 | onSign       | 当标记问卷时会触发该事件                 | array |
 | onSaveTitle  | 当问卷题目失焦时会触发该事件              | array |
 
-## 开发说明
-
-- 数据结构
+## 数据结构
 
 ```
 //可供选择的type类型
@@ -61,13 +59,13 @@ const type = {
 	input: '填空题'
 }
 
-//react-questionnair按照如下的数据结构约定一个编辑器
+//react-questionnair按照如下的数据结构约定一个编辑器，开发时可以按照如下的数据结构约定好
 const editor = {
-	questionId: uuid(), //id
-	type: type, //类型，根据类型渲染出相应的题型
-	title: '', //题目
-	required: false, //是否必填
-	remark: false, //是否有备注
+    questionId: uuid(), //id
+    type: type, //类型，根据类型渲染出相应的题型
+    title: '', //题目
+    required: false, //是否必填
+    remark: false, //是否有备注
     remarkText: '', //备注内容
     options: ['选项', '选项'], //选项(只有radio,checkbox,select有,其余尽量给个空数组)
     rows: 1, //选项占的行数
@@ -85,7 +83,7 @@ const editor = {
 
 ```
 
-- 注意事项
+## 注意事项
 
 * 题目编辑器都是循环<Questionnair.Editor editor={editor}>渲染出来的，react-questionnair的设计思路就是将编辑器数组状态提升，
   每次进行编辑器修改时(触发API事件)，都会反映在编辑器数组中，然后再重新渲染整个问卷表。与后端交互的话把最新的题目数组返回给后端保存就行。
