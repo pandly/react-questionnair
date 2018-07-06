@@ -30,13 +30,12 @@ import Questionnnair from 'react-questionnair'
 
 ## APIs
 
-- Attributes
 | 属性      | 子属性 | 描述                            |   类型   | 默认值 |
 | --------- | ------ | :------------------------------ | :------: | :----: |
 | editor |        | 编辑器数据结构                  |  array  |        |
 | acitveAnswer      |        | 编辑器组件为true时可以进行答案填写                            |   boolean   |    false    |
 
-- Events
+
 | 属性       | 描述                            |   参数   |
 | --------- | :------------------------------ | :------: |
 | onDrag       | 当拖拽题目时会触发该事件（包括题目栏拖拽）  | array |
