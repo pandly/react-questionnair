@@ -1,0 +1,39 @@
+:global {
+	.wowjoy-radio {
+		cursor: pointer;
+		display: inline-block;
+	}
+	input[type='radio']:checked {
+		&+.wowjoy-radio__inner {
+			border-color: #06aea6;
+			&:before {
+				content: '';
+				background: #06aea6;
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			} 
+		}
+	}
+	.wowjoy-radio__inner {
+		position: relative;
+		display: inline-block;
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		background: #fff;
+		border: 1px solid #DBDBDB;
+		vertical-align: sub;
+		margin-right: 5px;
+	}
+	.wowjoy-radio__text {
+		display: inline-block;
+	    max-width: 80%;
+	    vertical-align: top;
+		word-break: break-all;
+	}
+}

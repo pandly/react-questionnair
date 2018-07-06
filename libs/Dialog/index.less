@@ -1,0 +1,49 @@
+:global {
+	.wowjoy-dialog {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0,0,0,0.30);
+		//visibility: hidden;
+		display: none;
+		//transition: all .3s;
+		z-index: 10;
+	}
+	.wowjoy-dialog__fadeIn {
+		display: block;
+	}
+	.wowjoy-dialog__inner {
+		background: #FFFFFF;
+		box-shadow: 0 0 4px 0 rgba(0,0,0,0.20);
+		border-radius: 3px;
+		padding: 10px 20px;
+		width: 40%;
+		max-width: 500px;
+		min-width: 300px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		//opacity: 0;
+		//transition: all .3s;
+	}
+	.wowjoy-dialog__slideDown {
+		opacity: 1;
+		transform: translateY(-50%);
+	}
+	.wowjoy-dialog__header {
+        margin-bottom: 15px;
+        font-family: PingFangSC-Medium;
+		font-size: 16px;
+		color: #333333;
+	}
+	.wowjoy-dialog__footer {
+		height: 40px;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+};

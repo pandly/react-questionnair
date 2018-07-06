@@ -1,0 +1,23 @@
+//animate
+@keyframes shake {
+  from, to {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    transform: translate3d(-8px, 0, 0);
+  }
+
+  20%, 40%, 60%, 80% {
+    transform: translate3d(8px, 0, 0);
+  }
+}
+.shake-transition {
+  height: 100%;
+  width: 100%;
+}
+.shaked {
+  animation-name: shake;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}

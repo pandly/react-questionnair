@@ -1,0 +1,35 @@
+:global {
+	.wowjoy-checkbox {
+		cursor: pointer;
+		display: inline-block;
+	}
+	input[type='checkbox']:checked {
+		&+.wowjoy-checkbox__inner {
+			border-color: #06aea6;
+			&:before {
+				content: '\2713';
+				color: #06aea6;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			} 
+		}
+	}
+	.wowjoy-checkbox__inner {
+		position: relative;
+		display: inline-block;
+		width: 16px;
+		height: 16px;
+		background: #fff;
+		border: 1px solid #DBDBDB;
+		vertical-align: sub;
+		margin-right: 5px;
+	}
+	.wowjoy-checkbox__text {
+		display: inline-block;
+	    max-width: 80%;
+	    vertical-align: top;
+		word-break: break-all;
+	}
+}
