@@ -3,7 +3,7 @@
 基于react开发的自定义问卷调查表。目前只支持单选题、下拉题、多选题、单行文本题、多行文本题、填空题六种基本题型。支持拖拽排序功能。
 
 ## 预览
-[preview](react-questionnair.png)
+![preview](react-questionnair.png)
 
 ## 安装 
 
