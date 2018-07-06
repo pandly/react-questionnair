@@ -12,13 +12,13 @@
 ## Demo 开发
 
 ```shell
-$ git clone https://github.com/pandly/react-questionnnair.git
-$ cd react-questionnnair
+$ git clone https://github.com/pandly/react-questionnair.git
+$ cd react-questionnair
 $ npm install
 $ npm run dev
 
 ```
-[demo地址](https://pandly.github.io/react-questionnnair/dist/)
+[demo地址](https://pandly.github.io/react-questionnair/dist/)
 
 ## 使用
 
