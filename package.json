@@ -1,8 +1,8 @@
 {
-  "name": "react-webpack",
-  "version": "1.0.0",
+  "name": "react-questionnair",
+  "version": "v1.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "dev": "node bin/dev-server",
     "build": "webpack --config webpack/webpack.config.js"

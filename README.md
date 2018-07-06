@@ -88,10 +88,9 @@ const editor = {
 
 ## 注意事项
 
-* 题目编辑器都是循环<Questionnair.Editor editor={editor}>渲染出来的，react-questionnair的设计思路就是将编辑器数组状态提升，
+* 题目编辑器都是循环`<Questionnair.Editor editor={editor} />`渲染出来的，react-questionnair的设计思路就是将编辑器数组状态提升，
   每次进行编辑器修改时(触发API事件)，都会反映在编辑器数组中，然后再重新渲染整个问卷表。与后端交互的话把最新的题目数组返回给后端保存就行。
   
 * 其他模块需要编辑好的题目话，根据相应的id去后端取相应的题目`<Questionnair.Editor editor={editor} activeAnswer = {true}/>`渲染在页面上。
 
 * 填写完题目以后再根据`<Questionnair.Answer editor={editor} />`组件渲染答案。
-
