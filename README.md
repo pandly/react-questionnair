@@ -2,6 +2,9 @@
 
 基于react开发的自定义问卷调查表。目前只支持单选题、下拉题、多选题、单行文本题、多行文本题、填空题六种基本题型。支持拖拽排序功能。
 
+## 预览
+[preview](react-questionnair.png)
+
 ## 安装 
 
     npm install react-questionnair
@@ -15,7 +18,7 @@ $ npm install
 $ npm run dev
 
 ```
-[demo地址](https://pandly.github.io/react-questionnnair/dist/index.html)
+[demo地址](https://pandly.github.io/react-questionnnair/dist/)
 
 ## 使用
 
@@ -91,3 +94,4 @@ const editor = {
 * 其他模块需要编辑好的题目话，根据相应的id去后端取相应的题目`<Questionnair.Editor editor={editor} activeAnswer = {true}/>`渲染在页面上。
 
 * 填写完题目以后再根据`<Questionnair.Answer editor={editor} />`组件渲染答案。
+

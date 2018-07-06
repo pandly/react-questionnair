@@ -19,7 +19,7 @@ class Questionnair extends React.PureComponent {
 
     state = {
     	editors: [],
-    	questionnairTitle: '模板标题',
+    	questionnairTitle: '问卷标题',
     	curMoveItem: null,
     	drag: false,
     	scrollTo: 0,
