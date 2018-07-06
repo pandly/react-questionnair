@@ -15,6 +15,7 @@ $ npm install
 $ npm run dev
 
 ```
+[demo地址](https://pandly.github.io/react-questionnnair/dist/index.html)
 
 ## 使用
 
@@ -30,13 +31,13 @@ import Questionnnair from 'react-questionnair'
 
 ## APIs
 
-| 属性      | 子属性 | 描述                            |   类型   | 默认值 |
-| --------- | ------ | :------------------------------ | :------: | :----: |
-| editor |        | 编辑器数据结构                  |  array  |        |
-| acitveAnswer      |        | 编辑器组件为true时可以进行答案填写                            |   boolean   |    false    |
+| 属性      | 描述                            |   类型   | 默认值 |
+| --------- | :------------------------------ | :------: | :----: |
+| editor | 编辑器数据结构                  |  array  |        |
+| acitveAnswer | 编辑器组件为true时可以进行答案填写  |   boolean   |    false    |
 
 
-| 属性       | 描述                            |   参数   |
+| 事件       | 描述                            |   参数   |
 | --------- | :------------------------------ | :------: |
 | onDrag       | 当拖拽题目时会触发该事件（包括题目栏拖拽）  | array |
 | onConfirm    | 当确认编辑题目时会触发该事件              | array |
