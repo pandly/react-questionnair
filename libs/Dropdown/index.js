@@ -1,18 +1,23 @@
-import React from 'react'
-
-import styles from './index.less'
+import React from 'react';
+import './index.less';
 
 class Select extends React.PureComponent {
 
 	handleChange = (e) => {
-		const { onChange } = this.props;
-		if(onChange) {
-			onChange(e)
-		}
+		const {
+			onChange,
+		} = this.props;
+		if (onChange) {
+			onChange(e);
+		};
 	}
 
 	render() {
-		const { name, value, options } = this.props;
+		const {
+			name,
+			value,
+			options,
+		} = this.props;
 		return (
 			<div className="wowjoy-select">
 				<select
@@ -24,10 +29,10 @@ class Select extends React.PureComponent {
 				    {options.map((option, index) => {
 				    	return <option key={index} value={option}>{option}</option>
 				    })}
-		        </select>
-	        </div>
-		)
+		    </select>
+	    </div>
+		);
 	}
 }
 
-export default Select
+export default Select;

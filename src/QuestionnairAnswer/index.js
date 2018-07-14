@@ -1,6 +1,8 @@
 import React from 'react';
 
-const QuestionnairAnswer = ({ answer }) => {
+const QuestionnairAnswer = ({
+	answer
+}) => {
 	return (
 		<div style={{ minHeight: 60 }}>
 			<div style={{ color: '#666' }}>{`${index + 1}.${answer.type === 'input' ? answer.completionForwards : answer.title + ':'}`}</div>
@@ -14,7 +16,7 @@ const QuestionnairAnswer = ({ answer }) => {
 				) : answer.answer[answer.type].optionValue
 			) : answer.answer[answer.type]}</div>
 		</div>
-	)
+	);
 }
 
 export default QuestionnairAnswer;

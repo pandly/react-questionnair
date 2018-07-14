@@ -1,18 +1,25 @@
-import React from 'react'
-
-import styles from './index.less'
+import React from 'react';
+import './index.less';
 
 class Radio extends React.PureComponent {
 
 	handleChange = (e) => {
-		const { onChange } = this.props;
-		if(onChange) {
-			onChange(e)
-		}
+		const {
+			onChange,
+		} = this.props;
+		if (onChange) {
+			onChange(e);
+		};
 	}
 
 	render() {
-		const { defaultChecked, value, name, label, style } = this.props;
+		const {
+			defaultChecked,
+			value,
+			name,
+			label,
+			style,
+		} = this.props;
 		return (
 			<label className="wowjoy-radio" style={style}>
 				<input 
@@ -23,10 +30,10 @@ class Radio extends React.PureComponent {
 				  onChange={this.handleChange}
 				  style={{ display: 'none' }}/>
 				<span className="wowjoy-radio__inner"></span>
-			    <span className="wowjoy-radio__text">{label}</span>
+			  <span className="wowjoy-radio__text">{label}</span>
 			</label>
-		)
+		);
 	}
 }
 
-export default Radio
+export default Radio;

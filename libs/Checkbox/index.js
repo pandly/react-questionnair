@@ -1,23 +1,31 @@
-import React from 'react'
-
-import styles from './index.less'
+import React from 'react';
+import './index.less';
 
 class Checkbox extends React.PureComponent {
-    
-    static defaultProps = {
+	static defaultProps = {
 		value: '',
-		name: ''
-    }
+		name: '',
+	}
 
 	handleChange = (e) => {
-		const { onChange, index } = this.props;
-		if(onChange) {
-			onChange(e, index)
-		}
+		const {
+			onChange,
+			index,
+		} = this.props;
+		if (onChange) {
+			onChange(e, index);
+		};
 	}
 
 	render() {
-		const { defaultChecked, value, name, index, label, style } = this.props;
+		const {
+			defaultChecked,
+			value,
+			name,
+			index,
+			label,
+			style,
+		} = this.props;
 		return (
 			<label className="wowjoy-checkbox" style={style}>
 				<input 
@@ -28,11 +36,11 @@ class Checkbox extends React.PureComponent {
 				  defaultChecked={defaultChecked}
 				  onChange={this.handleChange}
 				  style={{ display: 'none' }}/>
-					<span className="wowjoy-checkbox__inner"></span>
+						<span className="wowjoy-checkbox__inner"></span>
 			    	<span className="wowjoy-checkbox__text">{label}</span>
 			</label>
-		)
+		);
 	}
 }
 
-export default Checkbox
+export default Checkbox;

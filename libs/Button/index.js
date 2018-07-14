@@ -1,23 +1,31 @@
-import React from 'react'
-
-import styles from './index.less'
+import React from 'react';
+import './index.less';
 
 class Button extends React.PureComponent {
-    static defaultProps = {
+	static defaultProps = {
 		disabled: false,
 		type: '',
-		size: ''
-    }
+		size: '',
+	}
 
 	handleClick = (e) => {
-		const { onClick } = this.props;
-		if(onClick) {
-			onClick()
-		}
+		const {
+			onClick,
+		} = this.props;
+		if (onClick) {
+			onClick();
+		};
 	}
 
 	render() {
-		const { type, size, disabled, children, onClick, ...otherProps } = this.props;
+		const {
+			type,
+			size,
+			disabled,
+			children,
+			onClick,
+			...otherProps,
+		} = this.props;
 		const buttonType = type ? `wowjoy-button__${type}` : '';
 		const buttonSize = size ? `wowjoy-button__${size}` : '';
 		return (
@@ -27,8 +35,8 @@ class Button extends React.PureComponent {
 			  onClick={this.handleClick}>
 				{children}
 			</button>
-		)
+		);
 	}
 }
 
-export default Button
+export default Button;
