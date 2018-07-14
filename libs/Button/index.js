@@ -30,11 +30,11 @@ class Button extends React.PureComponent {
 		const buttonSize = size ? `wowjoy-button__${size}` : '';
 		return (
 			<button 
-			  className={`wowjoy-button ${buttonType} ${buttonSize}`}
-			  disabled={disabled}
-			  onClick={this.handleClick}>
-				{children}
-			</button>
+          className={`wowjoy-button ${buttonType} ${buttonSize}`}
+          disabled={disabled}
+          onClick={this.handleClick}>
+            {children}
+        </button>
 		);
 	}
 }
