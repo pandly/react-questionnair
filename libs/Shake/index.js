@@ -34,8 +34,8 @@ class ShakeTransition extends React.PureComponent {
     } = this.state;
     return (
       <div className={`shake-transition ${shake ? 'shaked' : ''}`}>
-				{this.props.children}
-			</div>
+        {this.props.children}
+      </div>
     );
   }
 }

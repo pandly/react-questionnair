@@ -390,27 +390,27 @@ class QuestionnairEditor extends React.PureComponent {
     this.answer = answer && JSON.parse(JSON.stringify(answer));
     this.otherOptionValue = answer && this.answer[type].otherOptionValue;
     /*
-     * 
+     *
      * 以下元素为编辑状态下的元素
-     * 
+     *
      */
     //编辑状态下的题目
     const ediTitleEl = (
       <div className="editor-row">
-				<label className="editor-row-title">题目</label>
-				<div className="editor-row-content">
-				  <ShakeTransition shake={inputShake}>
-						<Input
-						  name={'title'}
-						  value={title}
-						  onChange={this.handleChange}
-						  style={{
-						  	borderColor: hasTitle ? '' : 'red'
-						  }}
-						/>
-					</ShakeTransition>
-				</div>				
-			</div>
+        <label className="editor-row-title">题目</label>
+        <div className="editor-row-content">
+          <ShakeTransition shake={inputShake}>
+            <Input
+              name={'title'}
+              value={title}
+              onChange={this.handleChange}
+              style={{
+                borderColor: hasTitle ? '' : 'red'
+              }}
+            />
+          </ShakeTransition>
+        </div>
+      </div>
     );
     //编辑状态下的选项框
     const optionsArr = options.map((option, index) => {
@@ -419,256 +419,256 @@ class QuestionnairEditor extends React.PureComponent {
           <label className="editor-row-title">
             <i className="iconfont icon-xuanxiangicon"></i>
           </label>
-				  <div className="editor-row-content">
-			      <ShakeTransition shake={optionShake[index]}>
-							<Input
-							  index={index}
-							  name={'options'}
-							  value={option}
-							  onChange={this.handleChange}
-							  style={{
-							  	borderColor: hasOption[index] === false ? 'red' : ''  
-							  }}
-							/>
-						</ShakeTransition>
-					</div>
-					<i className="iconfont icon-chachaicon" onClick={() => this.deleteOption(index)}></i>
-				</div>
+          <div className="editor-row-content">
+            <ShakeTransition shake={optionShake[index]}>
+              <Input
+                index={index}
+                name={'options'}
+                value={option}
+                onChange={this.handleChange}
+                style={{
+                  borderColor: hasOption[index] === false ? 'red' : ''
+                }}
+              />
+            </ShakeTransition>
+          </div>
+          <i className="iconfont icon-chachaicon" onClick={() => this.deleteOption(index)}></i>
+        </div>
       )
     });
     //编辑状态下的选项框和新建框
     const ediOptionsEl = (
       <div>
-			  { optionsArr }
-				<div className="editor-row">	        
-				  <div className="editor-row-content">
-						<div className="editor-create-option" onClick={this.createOption}>
-							<i className="iconfont icon-xinjianxuanxiangicon"></i>
-						  <span style={{ color: '#999' }}>新建选项</span>
-						</div>
-					</div>
-					<i className="iconfont icon-chachaicon" style={{ visibility: 'hidden' }}></i>
-				</div>
-			</div>
+        { optionsArr }
+        <div className="editor-row">
+          <div className="editor-row-content">
+            <div className="editor-create-option" onClick={this.createOption}>
+              <i className="iconfont icon-xinjianxuanxiangicon"></i>
+              <span style={{ color: '#999' }}>新建选项</span>
+            </div>
+          </div>
+          <i className="iconfont icon-chachaicon" style={{ visibility: 'hidden' }}></i>
+        </div>
+      </div>
     );
     //编辑状态下的”其他“选项
     const ediOtherOptionsEl = (
-      <div className="editor-row">	        
-			  <div className="editor-row-content">
-			    <div className="other-option-wrapper">
-						<ContentEditable 
-							name={'otherOptionForwards'}
-							html={otherOptionForwards}
-							onChange={this.handleChange}
-							onKeyPress={this.disableEnter}
-						/>
-						<div className="other-fill">
-							<div className="other-fill-inner">____</div>
-						</div>
-						<ContentEditable
-						  style={{ flex: 1 }}
-							name={'otherOptionBackwards'}
-							html={otherOptionBackwards}
-							onChange={this.handleChange}
-							onKeyPress={this.disableEnter}
-						/>
-			    </div>
-				</div>
-				<i className="iconfont icon-chachaicon" onClick={() => this.handleChange({target: {value: false, name: 'otherOption'}})}></i>
-			</div>
+      <div className="editor-row">
+        <div className="editor-row-content">
+          <div className="other-option-wrapper">
+            <ContentEditable
+              name={'otherOptionForwards'}
+              html={otherOptionForwards}
+              onChange={this.handleChange}
+              onKeyPress={this.disableEnter}
+            />
+            <div className="other-fill">
+              <div className="other-fill-inner">____</div>
+            </div>
+            <ContentEditable
+              style={{ flex: 1 }}
+              name={'otherOptionBackwards'}
+              html={otherOptionBackwards}
+              onChange={this.handleChange}
+              onKeyPress={this.disableEnter}
+            />
+          </div>
+        </div>
+        <i className="iconfont icon-chachaicon" onClick={() => this.handleChange({target: {value: false, name: 'otherOption'}})}></i>
+      </div>
     );
     //编辑状态下的填空题
     const ediCompletionEl = (
       <div className="editor-row">
-			  <label className="editor-row-title">内容</label>	        
-			  <div className="editor-row-content">
-			    <div className="other-option-wrapper">
-						<ContentEditable 
-							name={'completionForwards'}
-							html={completionForwards}
-							onChange={this.handleChange}
-							onKeyPress={this.disableEnter}
-						/>
-						<div className="other-fill">
-							<div className="other-fill-inner">____</div>
-						</div>
-						<ContentEditable
-						  style={{ flex: 1 }}
-							name={'completionBackwards'}
-							html={completionBackwards}
-							onChange={this.handleChange}
-							onKeyPress={this.disableEnter}
-						/>
-			    </div>
-				</div>
-			</div>
+        <label className="editor-row-title">内容</label>
+        <div className="editor-row-content">
+          <div className="other-option-wrapper">
+            <ContentEditable
+              name={'completionForwards'}
+              html={completionForwards}
+              onChange={this.handleChange}
+              onKeyPress={this.disableEnter}
+            />
+            <div className="other-fill">
+              <div className="other-fill-inner">____</div>
+            </div>
+            <ContentEditable
+              style={{ flex: 1 }}
+              name={'completionBackwards'}
+              html={completionBackwards}
+              onChange={this.handleChange}
+              onKeyPress={this.disableEnter}
+            />
+          </div>
+        </div>
+      </div>
     );
     //添加"其他"选项 | 批量编辑
     const ediCtrlOptionsEl = (
-      <div className="options-control">	        
-		    <button 
-		      className="control-button"
-		      style={{
-		      	color: otherOption ? '#CCC' : '#45A8E6',
-		      	cursor: otherOption ? 'not-allowed' : 'pointer',
-		      	fontSize: 14
-		      }}
-		      disabled={otherOption} 
-		      onClick={() => this.handleChange({target: {value: true, name: 'otherOption'}})}>
-		    	  添加“其他”选项
-		    </button>
-		    <span style={{ margin: '0 10px' }}>|</span>
-		    <button 
-		      className="control-button"
-		      style={{
-		      	color: toggleMutiOption ? '#CCC' : '#45A8E6',
-		      	cursor: toggleMutiOption ? 'not-allowed' : 'pointer',
-		      	fontSize: 14
-		      }}
-		      disabled={toggleMutiOption} 
-		      onClick={() => this.handleMutiOption()}>
-		        批量编辑
-		    </button>
-			</div>
+      <div className="options-control">
+        <button
+          className="control-button"
+          style={{
+            color: otherOption ? '#CCC' : '#45A8E6',
+            cursor: otherOption ? 'not-allowed' : 'pointer',
+            fontSize: 14
+          }}
+          disabled={otherOption}
+          onClick={() => this.handleChange({target: {value: true, name: 'otherOption'}})}>
+            添加“其他”选项
+        </button>
+        <span style={{ margin: '0 10px' }}>|</span>
+        <button
+          className="control-button"
+          style={{
+            color: toggleMutiOption ? '#CCC' : '#45A8E6',
+            cursor: toggleMutiOption ? 'not-allowed' : 'pointer',
+            fontSize: 14
+          }}
+          disabled={toggleMutiOption}
+          onClick={() => this.handleMutiOption()}>
+            批量编辑
+        </button>
+      </div>
     );
     /*
-     * 
+     *
      * 以下元素为填写状态下的元素
-     * 
+     *
      */
     //填写状态下的填空
     const subCompletionEl = (
       <div className="subject-other-option">
-				<span>{completionForwards}</span>
-				<div
-				  className='other-option-input'
-				  onInput={this.handleOtherOptionInputChange}
-				  onKeyPress={this.disableEnter}
-				  contentEditable
-				  dangerouslySetInnerHTML={{ __html: answer && this.answer[type] }}>
-				</div>
-				<span>{completionBackwards}</span>
-			</div>
+        <span>{completionForwards}</span>
+        <div
+          className='other-option-input'
+          onInput={this.handleOtherOptionInputChange}
+          onKeyPress={this.disableEnter}
+          contentEditable
+          dangerouslySetInnerHTML={{ __html: answer && this.answer[type] }}>
+        </div>
+        <span>{completionBackwards}</span>
+      </div>
     );
     //填写状态下的单选、多选其他选项
     const subOtherOptionsEl = (
       <div className="subject-other-option">
-				<span>{otherOptionForwards}</span>
-				<div
-				  className='other-option-input'
-				  onInput={this.handleOtherOptionInputChange}
-				  onKeyPress={this.disableEnter}
-				  contentEditable
-				  dangerouslySetInnerHTML={{ __html: this.otherOptionInput }}>
-				</div>
-				<span>{otherOptionBackwards}</span>
-			</div>
+        <span>{otherOptionForwards}</span>
+        <div
+          className='other-option-input'
+          onInput={this.handleOtherOptionInputChange}
+          onKeyPress={this.disableEnter}
+          contentEditable
+          dangerouslySetInnerHTML={{ __html: this.otherOptionInput }}>
+        </div>
+        <span>{otherOptionBackwards}</span>
+      </div>
     );
     //填写状态下的单选、多选
     const optionsCom = otherOption ? options.concat('undefined') : options;
     const subRadioEl = (
       <div className="radio-group">
-				{optionsCom.map((data, index) => {
-					return (
-						<label 
-						  className="wowjoy-radio"
-						  style={{ width: `${100/parseInt(rows)}%`, marginBottom: 8 }}
-						  key={uuid()}>
-							<input 
-							  type="radio"
-							  name="radio"
-							  data-index={index}
-							  value={data} 
-							  defaultChecked={answer && this.answer.radio.optionIndex === index+''}
-							  onChange={this.handleAnswerChange}
-							  style={{ display: 'none' }}/>
-							<span className="wowjoy-radio__inner"></span>
-					    <span className="wowjoy-radio__text">
-					    	{data === 'undefined' ? (
-  								<div className="subject-other-option">
-  									<span>{otherOptionForwards}</span>
-  										<div
-  										  data-index={index}
-  										  className='other-option-input'
-  										  onInput={this.handleOtherOptionInputChange}
-  										  onKeyPress={this.disableEnter}
-  										  contentEditable
-  										  dangerouslySetInnerHTML={{ __html: this.otherOptionValue }}>
-  										</div>
-  									<span>{otherOptionBackwards}</span>
-  								</div>
-					    	) : data}
-					    </span>
-						</label> 
-					)
-				})}
-			</div>
+        {optionsCom.map((data, index) => {
+          return (
+            <label
+              className="wowjoy-radio"
+              style={{ width: `${100/parseInt(rows)}%`, marginBottom: 8 }}
+              key={uuid()}>
+              <input
+                type="radio"
+                name="radio"
+                data-index={index}
+                value={data}
+                defaultChecked={answer && this.answer.radio.optionIndex === index+''}
+                onChange={this.handleAnswerChange}
+                style={{ display: 'none' }}/>
+              <span className="wowjoy-radio__inner"></span>
+              <span className="wowjoy-radio__text">
+                {data === 'undefined' ? (
+                  <div className="subject-other-option">
+                    <span>{otherOptionForwards}</span>
+                      <div
+                        data-index={index}
+                        className='other-option-input'
+                        onInput={this.handleOtherOptionInputChange}
+                        onKeyPress={this.disableEnter}
+                        contentEditable
+                        dangerouslySetInnerHTML={{ __html: this.otherOptionValue }}>
+                      </div>
+                    <span>{otherOptionBackwards}</span>
+                  </div>
+                ) : data}
+              </span>
+            </label>
+          )
+        })}
+      </div>
     );
     const subCheckboxEl = (
       <div className="checkbox-group">
-				{optionsCom.map((data, index) => {
-					return (
-						<label 
-						  className="wowjoy-checkbox"
-						  key={uuid()}
-						  style={{ width: `${100/parseInt(rows)}%`, marginBottom: 8 }}>
-							<input 
-							  type="checkbox"
-							  name="checkbox"
-							  value={data}
-							  data-index={index}
-							  defaultChecked={answer && this.answer.checkbox !== '' && this.answer.checkbox.optionIndex.includes(index+'')}
-							  onChange={this.handleAnswerChange}
-							  style={{ display: 'none' }}/>
-							<span className="wowjoy-checkbox__inner"></span>
-				    	<span className="wowjoy-checkbox__text">
-							{data === 'undefined' ? (
-								<div className="subject-other-option">
-									<span>{otherOptionForwards}</span>
-										<div
-										  data-index={index}
-										  className='other-option-input'
-										  onInput={this.handleOtherOptionInputChange}
-										  onKeyPress={this.disableEnter}
-										  contentEditable
-										  dangerouslySetInnerHTML={{ __html: this.otherOptionValue }}>
-										</div>
-									<span>{otherOptionBackwards}</span>
-								</div>
-				    	) : data}
-				    	</span>
-						</label>
-					)
-				})}
-			</div>
+        {optionsCom.map((data, index) => {
+          return (
+            <label
+              className="wowjoy-checkbox"
+              key={uuid()}
+              style={{ width: `${100/parseInt(rows)}%`, marginBottom: 8 }}>
+              <input
+                type="checkbox"
+                name="checkbox"
+                value={data}
+                data-index={index}
+                defaultChecked={answer && this.answer.checkbox !== '' && this.answer.checkbox.optionIndex.includes(index+'')}
+                onChange={this.handleAnswerChange}
+                style={{ display: 'none' }}/>
+              <span className="wowjoy-checkbox__inner"></span>
+              <span className="wowjoy-checkbox__text">
+              {data === 'undefined' ? (
+                <div className="subject-other-option">
+                  <span>{otherOptionForwards}</span>
+                    <div
+                      data-index={index}
+                      className='other-option-input'
+                      onInput={this.handleOtherOptionInputChange}
+                      onKeyPress={this.disableEnter}
+                      contentEditable
+                      dangerouslySetInnerHTML={{ __html: this.otherOptionValue }}>
+                    </div>
+                  <span>{otherOptionBackwards}</span>
+                </div>
+              ) : data}
+              </span>
+            </label>
+          )
+        })}
+      </div>
     );
     //填写状态下的下拉框
     const subDropdownEl = (
-      <select 
+      <select
         defaultValue={ answer && this.answer[type] }
-			  onChange={this.handleAnswerChange}>
-  			  {options.map((option, index) => {
-  			  	return <option key={index} value={option}>{option}</option>
-  			  })}
-			</select>
+        onChange={this.handleAnswerChange}>
+          {options.map((option, index) => {
+            return <option key={index} value={option}>{option}</option>
+          })}
+      </select>
     );
     const optionsEl = type === 'dropdown' ? subDropdownEl : (type === 'radio' ? subRadioEl : subCheckboxEl);
     //填写状态下的单行文本、多行文本
     const subTextEl = (
       <input
-			  defaultValue={ answer && this.answer[type] }
-			  className="subject-input"
-			  style={{ height: 36 }}
-			  onChange={this.handleAnswerChange}
-			  maxLength={maxLength} />
+        defaultValue={ answer && this.answer[type] }
+        className="subject-input"
+        style={{ height: 36 }}
+        onChange={this.handleAnswerChange}
+        maxLength={maxLength} />
     );
     const subTextareaEl = (
       <textarea
-			  defaultValue={ answer && this.answer[type] } 
-			  className="subject-input"
-			  name={'textarea'}
-			  onChange={this.handleAnswerChange} 
-			  rows={textareaHeight} />
+        defaultValue={ answer && this.answer[type] }
+        className="subject-input"
+        name={'textarea'}
+        onChange={this.handleAnswerChange}
+        rows={textareaHeight} />
     );
     return (
       /*
@@ -678,157 +678,157 @@ class QuestionnairEditor extends React.PureComponent {
        */
       <div className="questionnair-item">
         {isEditor ? (
-	    		<ShakeTransition shake={editorShake}>
-	          <div className="questionnair-editor">
-							<div className="questionnair-editor-inner">
-								<div className="editor-type">
-									<i className="iconfont icon-Q-icon"></i>
-									<span className="editor-type-text">{this.switchEditor(type)}</span>
-								</div>
-								{'input' === type ? ediCompletionEl : ediTitleEl}
-								<div className="editor-row">
-								  <div className="editor-row-content">						
-										<Checkbox
-										  name={'required'}
-										  defaultChecked={required} 
-										  label={'必填'}
-										  onChange={this.handleChange}
-										  style={{
-										  	marginRight: 15
-										  }}
-										/>
-										<Checkbox
-										  name={'remark'}
-										  defaultChecked={remark}  
-										  label={'备注'}
-										  onChange={this.handleChange}
-										  style={{
-										  	marginRight: 15
-										  }}
-										/>
-										{remark && (
-											<Input
-											  name={'remarkText'}
-											  value={remarkText || ''}
-											  onChange={this.handleChange}
-											/>
-										)}
-								  </div>
-								</div>
-								{['radio', 'dropdown', 'checkbox'].includes(type) && ediOptionsEl}
-								{otherOption && ediOtherOptionsEl}
-								{['radio', 'checkbox'].includes(type) && ediCtrlOptionsEl}
-							  {['radio', 'checkbox'].includes(type) && (
-									<div className="editor-adv">
-										<span className="adv-option">
-											每行显示
-											<Dropdown
-											  name={'rows'}
-										    value={rows} 
-											  options={rowOptions}
-											  onChange={this.handleChange}/>
-											个选项
-										</span>
-									</div>
-							    )}
-								{'text' === type && (
-									<div className="editor-adv">
-										<span className="adv-option">
-											最多填写
-											<Input
-											  width={50}
-											  margin={'0 10px'} 
-											  type={"number"}
-											  name={'maxLength'}
-											  value={maxLength}
-											  onChange={this.handleChange} />
-											字
-										</span>
-									</div>
-								)}
-								{'textarea' === type && (
-									<div className="editor-adv">
-										<span className="adv-option">
-											文本框高度
-											<Input
-											  width={50}
-											  margin={'0 10px'}
-											  type={"number"}
-											  name={'textareaHeight'}
-											  value={textareaHeight}
-											  onChange={this.handleChange} />
-											行
-										</span>
-									</div>
-								)}
-								<div className="editor-button">
-									<Button type="primary" onClick={this.confirm}>确定</Button>
-									<Button type="cancel" onClick={this.cancel}>取消</Button>
-								</div>
-							</div>
-							<Dialog
-							  visible={dialogVisible}
-							  title="批量修改"
-							  onCancel={this.closeDialog}
-							  onConfirm={this.confirmDialog}>
-								<Input 
-								  type="textarea"
-								  value={mutiOption}
-								  onChange={this.handleMutiTextarea}
-								  rows={6} />
-							</Dialog>
-						</div>
-				  </ShakeTransition>
+          <ShakeTransition shake={editorShake}>
+            <div className="questionnair-editor">
+              <div className="questionnair-editor-inner">
+                <div className="editor-type">
+                  <i className="iconfont icon-Q-icon"></i>
+                  <span className="editor-type-text">{this.switchEditor(type)}</span>
+                </div>
+                {'input' === type ? ediCompletionEl : ediTitleEl}
+                <div className="editor-row">
+                  <div className="editor-row-content">
+                    <Checkbox
+                      name={'required'}
+                      defaultChecked={required}
+                      label={'必填'}
+                      onChange={this.handleChange}
+                      style={{
+                        marginRight: 15
+                      }}
+                    />
+                    <Checkbox
+                      name={'remark'}
+                      defaultChecked={remark}
+                      label={'备注'}
+                      onChange={this.handleChange}
+                      style={{
+                        marginRight: 15
+                      }}
+                    />
+                    {remark && (
+                      <Input
+                        name={'remarkText'}
+                        value={remarkText || ''}
+                        onChange={this.handleChange}
+                      />
+                    )}
+                  </div>
+                </div>
+                {['radio', 'dropdown', 'checkbox'].includes(type) && ediOptionsEl}
+                {otherOption && ediOtherOptionsEl}
+                {['radio', 'checkbox'].includes(type) && ediCtrlOptionsEl}
+                {['radio', 'checkbox'].includes(type) && (
+                  <div className="editor-adv">
+                    <span className="adv-option">
+                      每行显示
+                      <Dropdown
+                        name={'rows'}
+                        value={rows}
+                        options={rowOptions}
+                        onChange={this.handleChange}/>
+                      个选项
+                    </span>
+                  </div>
+                  )}
+                {'text' === type && (
+                  <div className="editor-adv">
+                    <span className="adv-option">
+                      最多填写
+                      <Input
+                        width={50}
+                        margin={'0 10px'}
+                        type={"number"}
+                        name={'maxLength'}
+                        value={maxLength}
+                        onChange={this.handleChange} />
+                      字
+                    </span>
+                  </div>
+                )}
+                {'textarea' === type && (
+                  <div className="editor-adv">
+                    <span className="adv-option">
+                      文本框高度
+                      <Input
+                        width={50}
+                        margin={'0 10px'}
+                        type={"number"}
+                        name={'textareaHeight'}
+                        value={textareaHeight}
+                        onChange={this.handleChange} />
+                      行
+                    </span>
+                  </div>
+                )}
+                <div className="editor-button">
+                  <Button type="primary" onClick={this.confirm}>确定</Button>
+                  <Button type="cancel" onClick={this.cancel}>取消</Button>
+                </div>
+              </div>
+              <Dialog
+                visible={dialogVisible}
+                title="批量修改"
+                onCancel={this.closeDialog}
+                onConfirm={this.confirmDialog}>
+                <Input
+                  type="textarea"
+                  value={mutiOption}
+                  onChange={this.handleMutiTextarea}
+                  rows={6} />
+              </Dialog>
+            </div>
+          </ShakeTransition>
         ) : (
-					<div 
-					  className="questionnair-subject"
-					  style={{ 
-					  	background: drag ? '' : (hover ? '#F5F5F5' : '#fff'),
-			  			borderTopColor: (drag && index === 0) ? '#dbdbdb' : '',
-			  			borderBottomColor: drag ? '#dbdbdb' : '',
-			  			cursor: acitveAnswer ? '' : 'move'
-					  }}
-					  onMouseEnter={this.mouseEnter}
-					  onMouseLeave={this.mouseLeave}>
-  					  <div className="questionnair-subject-inner" style={{ margin: acitveAnswer ? '' : '0 auto'}}>
-  							<div className="subject-row">
-  								<span>{index + 1}.</span>
-  								{'input' === type ? subCompletionEl : (<span>{title}</span>)}
-  								{required && <span className="subject-title-require">*</span>}
-  							</div>
-  							{remark && <div className="subject-row subject-remarks">{remarkText}</div>}
-  							<div className="subject-row">
-  								{['radio', 'dropdown', 'checkbox'].includes(type) && optionsEl}
-  								{type === 'text' && subTextEl}
-  								{type === 'textarea' && subTextareaEl}
-  							</div>
-  		        </div>
-  		        {!acitveAnswer && (
-  							<div 
-                  className="subject-control-mask" 
-                  style={{ 
-                  	background: curMoveItem === index ? 'rgba(245,245,245,0.3)' : '' 
+          <div
+            className="questionnair-subject"
+            style={{
+              background: drag ? '' : (hover ? '#F5F5F5' : '#fff'),
+              borderTopColor: (drag && index === 0) ? '#dbdbdb' : '',
+              borderBottomColor: drag ? '#dbdbdb' : '',
+              cursor: acitveAnswer ? '' : 'move'
+            }}
+            onMouseEnter={this.mouseEnter}
+            onMouseLeave={this.mouseLeave}>
+              <div className="questionnair-subject-inner" style={{ margin: acitveAnswer ? '' : '0 auto'}}>
+                <div className="subject-row">
+                  <span>{index + 1}.</span>
+                  {'input' === type ? subCompletionEl : (<span>{title}</span>)}
+                  {required && <span className="subject-title-require">*</span>}
+                </div>
+                {remark && <div className="subject-row subject-remarks">{remarkText}</div>}
+                <div className="subject-row">
+                  {['radio', 'dropdown', 'checkbox'].includes(type) && optionsEl}
+                  {type === 'text' && subTextEl}
+                  {type === 'textarea' && subTextareaEl}
+                </div>
+              </div>
+              {!acitveAnswer && (
+                <div
+                  className="subject-control-mask"
+                  style={{
+                    background: curMoveItem === index ? 'rgba(245,245,245,0.3)' : ''
                   }}>
                 </div>
               )}
-  		        <div 
-  		          className="subject-control-bar"
-  		          style={{ transform: drag ? '' : (hover ? 'translateX(0)' : '') }}>
-  							<div className="control-bar-inner">
-  						    <div className="control-bar-button" onClick={this.edit}>
-  						    	<i className="iconfont icon-grey_bianji"></i>
-  						    </div>
-  								<div className="control-bar-button" onClick={this.copy}>
-  									<i className="iconfont icon-grey_fuzhi"></i>
-  								</div>
-  								<div className="control-bar-button" onClick={this.remove}>
-  									<i className="iconfont icon-grey_shanchu"></i>
-  								</div>
-  							</div>
-  		        </div>
-					</div>
+              <div
+                className="subject-control-bar"
+                style={{ transform: drag ? '' : (hover ? 'translateX(0)' : '') }}>
+                <div className="control-bar-inner">
+                  <div className="control-bar-button" onClick={this.edit}>
+                    <i className="iconfont icon-grey_bianji"></i>
+                  </div>
+                  <div className="control-bar-button" onClick={this.copy}>
+                    <i className="iconfont icon-grey_fuzhi"></i>
+                  </div>
+                  <div className="control-bar-button" onClick={this.remove}>
+                    <i className="iconfont icon-grey_shanchu"></i>
+                  </div>
+                </div>
+              </div>
+          </div>
         )}
-			</div>
+      </div>
     );
   }
 }

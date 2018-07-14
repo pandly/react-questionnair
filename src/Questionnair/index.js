@@ -37,7 +37,7 @@ class Questionnair extends React.PureComponent {
     });
     callback(this.state.editors);
   }
-  /* 
+  /*
    * 判断是否有处于编辑状态的题目, activeEditorIndex // -1,没有处于编辑状态的题目
    * 如果有处于编辑状态的题目，则激活该编辑器抖动
    */
@@ -226,49 +226,49 @@ class Questionnair extends React.PureComponent {
     const editorsEl = editors.map((editor, index) => {
       return (
         <div
-	    		className="drag-wrapper"
-	    		ref={el => this.editorsEl[index] = el}
-	    		key={editor.questionId}>
-					<QuestionnairEditor
-					  index={index}
-					  curMoveItem={this.state.curMoveItem}
-					  editor={editor}
-					  drag={drag}
-					  handleConfirm={this.confirmEdit}
-				    handleCancel={this.cancelEdit}
-				    handleEdit={this.againEdit}
-				    handleRemove={this.removeEdit}
-				    handleCopy={this.copyEdit}
-				  />
-			  </div>
+          className="drag-wrapper"
+          ref={el => this.editorsEl[index] = el}
+          key={editor.questionId}>
+          <QuestionnairEditor
+            index={index}
+            curMoveItem={this.state.curMoveItem}
+            editor={editor}
+            drag={drag}
+            handleConfirm={this.confirmEdit}
+            handleCancel={this.cancelEdit}
+            handleEdit={this.againEdit}
+            handleRemove={this.removeEdit}
+            handleCopy={this.copyEdit}
+          />
+        </div>
       );
     });
     return (
       <div className="questionnair">
-				<QuestionnairSiderbar
-				  editors={editors} 
-				  onSelectEditor={this.createEditor}
-				  onDragOutline={this.dragEditorByOutline}
-				  onClickOutline={this.locateEditor}
-				/>
-				<QuestionnairContent
-				  isFirst={isFirst}
+        <QuestionnairSiderbar
+          editors={editors}
+          onSelectEditor={this.createEditor}
+          onDragOutline={this.dragEditorByOutline}
+          onClickOutline={this.locateEditor}
+        />
+        <QuestionnairContent
+          isFirst={isFirst}
           scrollTo={scrollTo}
           questionnairSign={this.sign}
           questionnairTitle={questionnairTitle}
           onBlurTitle={this.blurTitle}
           onChangeSign={this.handleSgin}>
-				    {editorsEl.length !== 0 && (
-  						<DragSort
-                draggable={canDrag} 
+            {editorsEl.length !== 0 && (
+              <DragSort
+                draggable={canDrag}
                 data={editors}
-                onDragEnd={this.handleDragEnd} 
+                onDragEnd={this.handleDragEnd}
                 onDragMove={this.handleDragMove}>
-  					    	{editorsEl}
-  					  </DragSort>
-				    )}
-				</QuestionnairContent>
-			</div>
+                  {editorsEl}
+              </DragSort>
+            )}
+        </QuestionnairContent>
+      </div>
     );
   }
 }

@@ -69,42 +69,42 @@ class QuestionnairContent extends React.PureComponent {
     } = this.state;
     const questionnairtitleEl = (
       <div className='title-inner'>
-				<Input
+        <Input
           value={questionnairTitle}
           onChange={this.handleChange}
           onBlur={this.handleBlur}
           style={{
-          	height: 45,
-          	borderColor: 'transparent',
-          	textAlign: 'center',
-          	fontSize: 18,
-          	color: '#666',
-          	fontFamily: 'PingFangSC-Medium'
+            height: 45,
+            borderColor: 'transparent',
+            textAlign: 'center',
+            fontSize: 18,
+            color: '#666',
+            fontFamily: 'PingFangSC-Medium'
           }}
-				  className='title-input' />
-			</div>
+          className='title-input' />
+      </div>
     );
     return (
       <div className='questionnair-page' ref={el => this.page = el}>
-				<div className='questionnair-page-banner'>
-					<div className='banner-text' onClick={this.handleSign} style={{ color: questionnairSign ? '#FFBF47' : '' }}>
-					  <i className="iconfont icon-dengpao"></i>
-					  <span style={{ marginLeft: 6 }}>{questionnairSign ? '取消标记' : '标记'}</span>
-					</div>
-				</div>
-				<div className='questionnair-page-title'>
-					{questionnairtitleEl}
-				</div>
-				<div className='questionnair-page-content' ref={el => this.content = el}>
-					{/*如果组件没有子节点，this.props.children返回false*/}
-					{this.props.children || (
-						<div className='questionnair-page-default'>
-							<img src={Default} style={{ width: 130 }}/>
-							<div className='page-default-text'>您还没有添加题目哦，请点击左侧控件开始出题吧</div>
-						</div>
-					)}
-				</div>
-			</div>
+        <div className='questionnair-page-banner'>
+          <div className='banner-text' onClick={this.handleSign} style={{ color: questionnairSign ? '#FFBF47' : '' }}>
+            <i className="iconfont icon-dengpao"></i>
+            <span style={{ marginLeft: 6 }}>{questionnairSign ? '取消标记' : '标记'}</span>
+          </div>
+        </div>
+        <div className='questionnair-page-title'>
+          {questionnairtitleEl}
+        </div>
+        <div className='questionnair-page-content' ref={el => this.content = el}>
+          {/*如果组件没有子节点，this.props.children返回false*/}
+          {this.props.children || (
+            <div className='questionnair-page-default'>
+              <img src={Default} style={{ width: 130 }}/>
+              <div className='page-default-text'>您还没有添加题目哦，请点击左侧控件开始出题吧</div>
+            </div>
+          )}
+        </div>
+      </div>
     );
   }
 }
